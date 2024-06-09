@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Alfardan</title>
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        hr {
+        width: 75%;
+        margin: 0 auto;
+        opacity: 0.1;
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Ali Alfardan</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact & Information</a></li>
+                </ul>
+            </div>
+        </nav>
+        <hr>
+    </header>
+  <main>
+    <!-- Intro Section -->
+    <section id="about">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Ali Alfardan profile picture" draggable="false"/>
+      </div>
+      <div class="section__text">
+        <p>Hello, I'm</p>
+        <h1>Ali Alfardan</h1>
+        <p>Full Stack Developer</p>
+        <div class="btn-container">
+          <button onclick="window.open('./assets/resume-example.pdf')">Download CV</button>
+          <button onclick="location.href='#contact'">Contact Info</button>
+        </div>
+        <div id="socials-container">
+          <img src="./assets/linkedin.png" alt="My LinkedIn profile" onclick="location.href='https://www.linkedin.com/in/alinalfardan/'"/>
+          <img src="./assets/github.png" alt="My Github profile" onclick="location.href='https://github.com/AsalarS'"/>
+        </div>
+      </div>
+    </section>
+    <hr/>
+    <!-- Project Section -->
+    <section class="project">
+      <div class="project-top">
+        <div class="project-name-title">
+          <h1>Project Name</h1>
+          <p>Project Description</p>
+        </div>
+        <div class="project-desc">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <div class="project-link">
+            <h3>Open Repo</h3>
+            <img src="" alt="Arrow">
+          </div>
+        </div>
+      </div>
+      <div class="project-image">
+        <img src="./assets/project-image.png" alt="Project Image" draggable="false">
+      </div>
+      <div class="project-top">
+        <div class="project-name-title">
+          <h1>Project Name</h1>
+          <p>Project Description</p>
+        </div>
+        <div class="project-desc">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <div class="project-link">
+            <h3>Open Repo</h3>
+            <img src="assets/arrow.png" alt="Arrow">
+          </div>
+        </div>
+      </div>
+      <div class="project-image">
+        <img src="./assets/project-image.png" alt="Project Image" draggable="false">
+      </div>
+    </section>
+    <hr/>
+    <!-- About Section -->
+    <section id="education">
+      <p>Get To Know More</p>
+      <h1>About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img src="./assets/about-pic.png" alt="Profile picture"/>
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img src="./assets/experience.png" alt="Experience icon"/>
+              <h3>Experience</h3>
+              <p>2+ years <br/>Frontend Development</p>
+            </div>
+            <div class="details-container">
+              <img src="./assets/education.png" alt="Education icon"/>
+              <h3>Education</h3>
+              <p>B.Sc. Bachelors Degree<br/>M.Sc. Masters Degree</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis reprehenderit et laborum, rem, dolore eum quod voluptate exercitationem nobis, nihil esse debitis maxime facere minus sint delectus velit in eos quo officiis explicabo deleniti dignissimos. Eligendi illum libero dolorum cum laboriosam corrupti quidem, reiciendis ea magnam? Nulla, impedit fuga!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <ul class="nav-links">
+          <!-- Number -->
+          <div class="footer-info">
+            <img src="./assets/linkedin.png" alt="LinkedIn icon"/>
+            <p><a href="https://www.linkedin.com">+973 36620055</a></p>
+          </div>
+          <!-- Mail -->
+          <div class="footer-info">
+            <img src="./assets/email.png" alt="Email icon"/>
+            <p><a href="mailto:examplemail@gmail.com">ali.n.alfardan@gmail.com</a></p>
+          </div>
+          <!-- LinkedIn -->
+          <div class="footer-info">
+            <img src="./assets/linkedin.png" alt="LinkedIn icon" onclick="window.open('https://www.linkedin.com/in/alinalfardan/')"/>
+          </div>
+          <!-- Github -->
+          <div class="footer-info">
+            <img src="./assets/github.png" alt="Github icon" onclick="window.open('https://www.github.com/AsalarS')"/>
+          </div>
+          <!-- CV -->
+          <div class="footer-info">
+            <img src="./assets/linkedin.png" alt="Résumé Download" onclick="window.open('./assets/resume-example.pdf')"/>
+          </div>
+        </ul>
+      </div>
+      <span>Ali Alfardan</span>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

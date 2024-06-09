@@ -22,9 +22,13 @@ p {
 }
 
 hr {
-  width: 75%;
+  width: 75%; 
   margin: 0 auto;
   opacity: 0.1;
+  border-width: 2px!important;
+   border-color: black!important;
+   opacity: 0.1!important;
+  
 }
 
 /* TRANSITION */
@@ -32,6 +36,7 @@ hr {
 a,
 .btn {
   transition: all 300ms ease;
+  min-width: 15vh;
 }
 
 /* DESKTOP NAV */
@@ -45,12 +50,18 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 10vh;
+  background-color: white;
+  width: 100%;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
 }
 
 .nav-links {
   gap: 2rem;
   list-style: none;
   font-size: 1.25rem;
+  margin: 0;
 }
 
 a {
@@ -74,11 +85,32 @@ a:hover {
   cursor: default;
 }
 
+#navBar {
+  background-color: white;
+}
+
+/* Visible state */
+#navBar.shown {
+  position: fixed;
+  z-index: 200;
+  /* http://smoothshadows.com/#djEsMSwxLDAuMDgsMjgsMCwwLCMwMzA3MTIsI2YzZjRmNiwjZmZmZmZmLDI%3D */
+box-shadow: 0px 0px 28px rgba(3, 7, 18, 0.08);
+
+  height: 7vh;
+}
+
+.active {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
 /* SECTIONS */
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  height: 80vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
@@ -193,6 +225,7 @@ section {
 
 #about {
   position: relative;
+  
 }
 
 .about-containers {
@@ -204,6 +237,7 @@ section {
 .about-details-container {
   justify-content: center;
   flex-direction: column;
+  height: 50vh;
 }
 
 .about-containers,
@@ -243,85 +277,14 @@ section {
   margin: auto 0;
 }
 
-/* EXPERIENCE SECTION */
-
-#experience {
-  position: relative;
-}
-
-.experience-sub-title {
-  color: rgb(85, 85, 85);
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.experience-details-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
-}
-
-article {
-  display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
-
-article .icon {
-  cursor: default;
-}
-
 /* PROJECTS SECTION */
 
-#projects {
-  position: relative;
-}
-
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
-
-.project-title {
-  margin: 1rem;
-  color: black;
-}
-
-.project-btn {
-  color: white;
-  background: rgb(53, 53, 53);
-  width: 10rem;
-  margin: 1rem;
-}
-
-.project-btn:hover {
-  background: rgb(0, 0, 0);
-}
-
-/* PROJECT SECTIONS V2 */
 
 .project-top {
   display: flex;
   justify-content: space-between;
   gap: 5rem;
-  height: 20rem;
+  height: 16rem;
   max-width: 125vh;
   
 }
@@ -331,18 +294,20 @@ article .icon {
   height: 3rem;
 } */
 
+
+
 .project-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-top: 2rem;
 
 }
 
 .project-name-title h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  line-height: 3rem;
 }
 
 .project-image{
@@ -365,8 +330,13 @@ article .icon {
 }
 
 .project-link img {
-  height: 3rem;
+  height: 2rem;
 }
+
+.project-desc p {
+  width: 65vh;
+}
+
 /* FOOTER SECTION */
 
 footer {
@@ -393,10 +363,8 @@ footer p {
 
 .footer-info {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .social-links {
