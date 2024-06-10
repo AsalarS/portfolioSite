@@ -370,3 +370,72 @@ footer p {
 .social-links {
   margin-left: 3rem;
 }
+
+/* Responsive CSS */
+
+@media only screen and (max-width: 1080px) and (min-width: 768px){
+  .barcode-font{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .barcode-font{
+    display: none ;
+  }
+
+  .nav-links {
+    padding: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .logo, li, .section__text {
+    font-size: 1rem!important;
+  }
+
+  .btn{
+    font-size: 0.75rem!important;
+  }
+
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+
+  .project-desc p {
+    width: auto;
+  }
+
+  nav {
+    flex-flow:column nowrap;
+  }
+
+  .section__pic-container {
+    display: none;
+  }
+
+  .section-container {
+    display: none;
+  }
+
+  section {
+    margin: 0 5rem;
+    height: 72vh;
+  }
+
+  .project-top {
+    display: block;
+    height: 26vh;
+  }
+
+  /* footer */
+  .footer-links {
+    display: none;
+    overflow: hidden;
+  }
+
+  .barcode-font {
+    font-size: 2.5rem;
+  }
+
+}
