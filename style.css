@@ -61,7 +61,6 @@ nav {
   gap: 2rem;
   list-style: none;
   font-size: 1.25rem;
-  margin: 0;
 }
 
 a {
@@ -346,7 +345,7 @@ footer {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -373,9 +372,19 @@ footer p {
 
 /* Responsive CSS */
 
-@media only screen and (max-width: 1080px) and (min-width: 768px){
+@media only screen and (max-width: 1200px) and (min-width: 768px){
   .barcode-font{
     display: none;
+  }
+
+  .social-links {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 490px){
+  .project-top {
+    height: 42vh!important;
   }
 }
 
@@ -383,9 +392,22 @@ footer p {
   .barcode-font{
     display: none ;
   }
+  .footer-content {
+    overflow: auto;
+  }
 
-  .nav-links {
-    padding: auto;
+  .project-top {
+    height: 25vh!important;
+  }
+  
+  body, html {
+    /* height: 100%!important; */
+    overflow: auto!important;
+    max-height: 100% !important;
+  }
+  
+  .social-links {
+    margin-left: 0;
   }
 }
 
