@@ -16,7 +16,9 @@
       <div class ="align-middle">
         <ul class="nav-links">
           <li><a href="#profile" data-bs-toggle="scrollspy" class="active">Home</a></li>
+          <li><a href="#video" data-bs-toggle="scrollspy">Video</a></li>
           <li><a href="#projects" data-bs-toggle="scrollspy">Projects</a></li>
+          <li><a href="#Testimonials" data-bs-toggle="scrollspy">Testimonials</a></li>
           <li><a href="#about" data-bs-toggle="scrollspy">About</a></li>
         </ul>
       </div>
@@ -63,6 +65,15 @@
 
     <hr/>
 
+    <!-- Video Section -->
+    <section id="video">
+      <h1 class="title">Video</h1>
+      <div class="video-media">
+        <video src="./assets/video.mp4" controls></video>
+      </div>
+    </section> 
+    <hr>
+
     <!-- Project Section -->
     <div id="projects">
       <section class="project-section">
@@ -79,14 +90,14 @@
               SQL for seamless database connectivity. Enabled users to efficiently manage student
               records, course scheduling, and administrative tasks. Demonstrated adeptness in both
               programming and database management for streamlined academic operations</p>
-            <div class="project-link" onclick="window.open('https://www.github.com/AsalarS')">
+            <div class="project-link" onclick="window.open('https://github.com/AsalarS/OODProject')">
               <h3>Open Repo</h3>
               <img src="assets/arrow.png" alt="Arrow" draggable="false">
             </div>
           </div>
         </div>
         <div class="project-image">
-          <img src="./assets/project-image.png" alt="Project Image" draggable="false">
+          <img src="./assets/oodWorkSample.png" alt="Project Image" draggable="false">
         </div>
   
       </section>
@@ -104,14 +115,14 @@
             interfaces with Swift's capabilities, ensuring seamless navigation and efficient data
             management. This project highlights proficiency in iOS development and a keen
             understanding of Bahraini healthcare system requirements.</p>
-          <div class="project-link" onclick="window.open('https://www.github.com/AsalarS')">
+          <div class="project-link" onclick="window.open('https://github.com/AsalarS/projectMobileProg')">
             <h3>Open Repo</h3>
             <img src="assets/arrow.png" alt="Arrow" draggable="false">
           </div>
         </div>
       </div>
       <div class="project-image">
-        <img src="./assets/project-image.png" alt="Project Image" draggable="false">
+        <img src="./assets/iosApp.png" alt="Project Image" draggable="false">
       </div>
   
       </section>
@@ -120,24 +131,19 @@
         <div class="project-top">
           <!-- <img src="./assets/linkedin.png" alt="Project Logo" class="project-logo"/> -->
         <div class="project-name-title">
-          <h1>Car Company Database</h1>
-          <p>Bahrain Polytechnic - 2023</p>
+          <h1>Escape The Planet Video Game</h1>
+          <p>Bahrain Polytechnic - 2024</p>
         </div>
         <div class="project-desc">
-          <p>Engineered a robust SQL database solution for a car rental company, leveraging
-            advanced features such as triggers, procedures, and functions to enhance
-            performance and automate critical processes. Implemented a comprehensive data
-            model to manage rental transactions, customer profiles, and vehicle inventory with
-            precision and efficiency. This project showcases expertise in database design and
-            optimization for complex business operations.</p>
-          <div class="project-link" onclick="window.open('https://www.github.com/AsalarS')">
+          <p>Created a chilling first-person shooter experience using Unity and C#. Developed a robust UI system and a customizable weapon system to enhance player immersion and gameplay. This project demonstrates proficiency in game development, UI design, and weapon mechanics, contributing to a terrifying and engaging horror experience.</p>
+          <div class="project-link" onclick="window.open('https://github.com/AsalarS/EscapeThePlanet')">
             <h3>Open Repo</h3>
             <img src="assets/arrow.png" alt="Arrow" draggable="false">
           </div>
         </div>
       </div>
       <div class="project-image">
-        <img src="./assets/project-image.png" alt="Project Image" draggable="false">
+        <img src="./assets/escapeThePlanet.png" alt="Project Image" draggable="false">
       </div>
   
       </section>
@@ -146,8 +152,25 @@
     <hr/>
 
     <!-- Testimonials Section -->
-    <section id="about">
+    <section id="Testimonials">
+      <p class="section__text__p1">What others have to say</p>
       <h1 class="title">Testimonials</h1>
+
+      <div class="testimony-container">
+        <div class="testimony">
+          <img src="./assets/quotation.png" alt="Experience icon" class="icon" draggable="false">
+          <p class="testimony-paragraph">Working with Ali Alfardan on our university programming project was an absolute pleasure. Their dedication to the project and their ability to think critically were invaluable. Fardan was always eager to learn new concepts and was always willing to help their teammates. Their contributions to the project were instrumental in its success.</p>
+          <p class="testimony-person">- Danial Alajami</p>
+        </div>
+  
+        <div class="testimony">
+          <img src="./assets/quotation.png" alt="Experience icon" class="icon" draggable="false">
+          <p class="testimony-paragraph">Ali Alfardan is a talented and hardworking programmer. I had the opportunity to collaborate with them on a challenging programming project, and I was impressed by their problem-solving skills and attention to detail. Ali was always willing to go the extra mile to ensure that the project met our highest standards. I would highly recommend working with them on any future projects.</p>
+          <p class="testimony-person"> - Ali Abdulrasool</p>
+        </div>
+      </div>
+
+      </div>
     </section>
 
     <hr/>
@@ -163,6 +186,7 @@
                 src="./assets/experience.png"
                 alt="Experience icon"
                 class="icon"
+                draggable="false"
               />
               <h3>Experience</h3>
               <p>2+ years <br />Frontend Development</p>
@@ -172,13 +196,14 @@
                 src="./assets/education.png"
                 alt="Education icon"
                 class="icon"
+                draggable="false"
               />
               <h3>Education</h3>
               <p>Bahrain Polytechnic • 2021-2025 • 3.28<br />B.Sc. Bachelors Degree</p>
             </div>
           </div>
           <div class="text-container">
-            <p>
+            <p class="about-desc">
               Passionate student proficient in Java, C#, Git, HTML & CSS, with hands-on
               experience in software development, web design, and database
               management. Proven problem-solving skills and collaborative mindset

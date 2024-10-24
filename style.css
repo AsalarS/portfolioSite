@@ -221,6 +221,60 @@ section {
   gap: 1rem;
 }
 
+/* Testimonials Section */
+
+.testimony-container {
+  display: flex;
+  gap: 2rem;
+  margin: 5rem 0;
+  justify-content: center;
+}
+
+.testimony {
+  padding: 1.5rem;
+  flex: 1;
+  max-width: 60vh;
+  border-radius: 1rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimony img {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  max-width: 100%; 
+}
+
+.testimony-person{
+  font-weight: bolder;
+}
+/* Video Section */
+
+/* Video Section */
+
+#video {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the video container horizontally */
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.video-media {
+  max-width: 60%; 
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.video-media video {
+  width: 100%; 
+  height: auto;
+}
+
 /* ABOUT SECTION */
 
 #about {
@@ -261,7 +315,7 @@ section {
   padding: 1.5rem;
   flex: 1;
   background: white;
-  border-radius: 2rem;
+  border-radius: 1rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
@@ -277,6 +331,10 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+}
+
+.about-desc{
+  text-align: center;
 }
 
 /* PROJECTS SECTION */
