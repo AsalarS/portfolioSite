@@ -661,3 +661,196 @@ body.dark-mode .floating-sidebar {
   background-color: rgba(30, 30, 30, 0.9);
   color: #e0e0e0;
 }
+
+/* Floating Sidebar Base Styles */
+.floating-sidebar {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Desktop Sidebar */
+.floating-sidebar-desktop {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Mobile Sidebar */
+.floating-sidebar-mobile {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  align-items: center;
+  max-width: 90%;
+}
+
+/* Sidebar Icons */
+.sidebar-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Styles */
+.dark-mode .floating-sidebar {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.dark-mode #navBar {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode #navBar.shown {
+  box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .nav-links a {
+  color: #e0e0e0;
+}
+
+.dark-mode .nav-links a:hover {
+  color: #4da6ff;
+}
+
+.dark-mode .logo {
+  color: #e0e0e0;
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .floating-sidebar {
+    display: none;
+  }
+
+  .nav-links {
+    align-items: center;
+  }
+}
+/* Updated nav and dark mode styles */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  color: inherit;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Floating Sidebar Base Styles */
+.floating-sidebar {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+/* Desktop Sidebar */
+.floating-sidebar-desktop {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Mobile Sidebar */
+.floating-sidebar-mobile {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  align-items: center;
+  max-width: 90%;
+}
+
+/* Dark Mode Styles */
+.dark-mode .floating-sidebar {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.dark-mode .floating-sidebar img {
+  filter: brightness(0.8) invert(1);
+}
+
+.dark-mode #navBar {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode #navBar.shown {
+  box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .nav-links a,
+.dark-mode .logo,
+.dark-mode .dark-mode-toggle {
+  color: #e0e0e0;
+}
+
+.dark-mode .nav-links a:hover {
+  color: #4da6ff;
+  text-decoration-color: #4da6ff;
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Updated responsive styles */
+@media only screen and (max-width: 768px) {
+  .nav-links {
+    align-items: center;
+  }
+
+  .dark-mode-toggle {
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+}
