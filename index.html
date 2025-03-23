@@ -4,246 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ali Alfardan</title>
-  <link rel="icon"  href="/assets/favicon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-  <header>
-    <nav id="navBar">
-      <div class="logo">Ali Alfardan</div>
-      <div class ="align-middle">
-        <ul class="nav-links">
-          <li><a href="#profile" data-bs-toggle="scrollspy" class="active">Home</a></li>
-          <li><a href="#projects" data-bs-toggle="scrollspy">Projects</a></li>
-          <li><a href="#about" data-bs-toggle="scrollspy">About</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main>
+<header>
+  <nav id="navBar">
+    <div class="logo">Ali Alfardan</div>
+    <div class="align-middle">
+      <ul class="nav-links">
+        <li><a href="#profile" data-bs-toggle="scrollspy" class="active">Home</a></li>
+        <li><a href="#experience" data-bs-toggle="scrollspy">Experience</a></li>
+        <li><a href="#projects" data-bs-toggle="scrollspy">Projects</a></li>
+        <li><a href="#about" data-bs-toggle="scrollspy">About</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
 
-    <!-- Intro Section -->
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="assets/profilePhoto.png" alt="Ali Alfardan Profile Picture" draggable="false"/>
+  <!-- Intro Section -->
+  <section id="profile">
+    <div class="section__pic-container">
+      <img src="assets/profilePhoto.png" alt="Ali Alfardan Profile Picture" draggable="false"/>
+    </div>
+    <div class="section__text">
+      <p class="section__text__p1">Hello, I'm</p>
+      <h1 class="title">Ali Alfardan</h1>
+      <p class="section__text__p2">Full Stack Developer</p>
+      <div class="btn-container">
+        <button
+                class="btn btn-color-2"
+                onclick="window.open('./assets/Ali Alfardan CV.pdf')"
+        >
+          Download CV
+        </button>
+        <button class="btn btn-color-1" onclick="location.href='#about'">
+          About Me
+        </button>
       </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Ali Alfardan</h1>
-        <p class="section__text__p2">Full Stack Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Ali Alfardan CV.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='#about'">
-            About Me
-          </button>
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Job History Section -->
+  <section id="experience">
+    <p class="section__text__p1">My Professional Journey</p>
+    <h1 class="title">Job History</h1>
+
+    <div class="experience-container">
+      <div class="job-card">
+        <div class="job-header">
+          <h3>Software Developer Intern</h3>
+          <p class="job-date">2025 - Present</p>
         </div>
-<!--        <div id="socials-container">-->
-<!--          <img-->
-<!--            src="./assets/linkedin.png"-->
-<!--            alt="My LinkedIn profile"-->
-<!--            class="icon"-->
-<!--            onclick="location.href='https://www.linkedin.com/in/alinalfardan/'"-->
-<!--          />-->
-<!--          <img-->
-<!--            src="./assets/github.png"-->
-<!--            alt="My Github profile"-->
-<!--            class="icon"-->
-<!--            onclick="location.href='https://github.com/AsalarS'"-->
-<!--          />-->
-<!--        </div>-->
+        <p class="job-desc">Currently developing enterprise applications using Angular and TypeScript for frontend development with C# for backend services. Working in an Agile environment with daily stand-ups and sprint planning. Responsible for implementing new features and maintaining existing functionality.</p>
+        <div class="job-tags">
+          <span class="job-tag">Angular</span>
+          <span class="job-tag">TypeScript</span>
+          <span class="job-tag">C#</span>
+          <span class="job-tag">.NET</span>
+          <span class="job-tag">Agile</span>
+        </div>
       </div>
-    </section>
 
-    <hr/>
-    <!-- Project Section -->
-    <div id="projects">
-      <section class="project-section">
-        <!-- <h1 class="title">Projects</h1> -->
-        <div class="project-top">
-            <!-- <img src="./assets/linkedin.png" alt="Project Logo" class="project-logo"/> -->
-          <div class="project-name-title">
-            <h1>Staff & Student Management Windows Form</h1>
-            <p>Bahrain Polytechnic - 2023</p>
-          </div>
-          <div class="project-desc">
-            <p>Developed a C# Windows Forms application for university management, incorporating
-              SQL for seamless database connectivity. Enabled users to efficiently manage student
-              records, course scheduling, and administrative tasks. Demonstrated adeptness in both
-              programming and database management for streamlined academic operations</p>
-            <div class="project-link" onclick="window.open('https://github.com/AsalarS/OODProject')">
-              <h3>Open Repo</h3>
-              <img src="assets/arrow.png" alt="Arrow" draggable="false">
-            </div>
-          </div>
+      <!-- You can uncomment and modify this for future job entries -->
+      <!--
+      <div class="job-card">
+        <div class="job-header">
+          <h3>Future Position</h3>
+          <p class="job-date">Date Range</p>
+        </div>
+        <p class="job-desc">Description of your responsibilities and achievements.</p>
+        <div class="job-tags">
+          <span class="job-tag">Skill 1</span>
+          <span class="job-tag">Skill 2</span>
+          <span class="job-tag">Skill 3</span>
+        </div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <hr/>
+
+  <!-- Project Section -->
+  <section id="projects" class="projects-section">
+    <p class="section__text__p1">My Work</p>
+    <h1 class="title">Projects</h1>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Staff & Student Management</h3>
+          <p class="project-date">Bahrain Polytechnic - 2023</p>
         </div>
         <div class="project-image">
           <img src="./assets/oodWorkSample.png" alt="Project Image" draggable="false">
         </div>
-  
-      </section>
-  
-      <section class="project-section">
-        <div class="project-top">
-          <!-- <img src="./assets/linkedin.png" alt="Project Logo" class="project-logo"/> -->
-        <div class="project-name-title">
-          <h1>Bahrain Medical Finder</h1>
-          <p>Bahrain Polytechnic - 2023</p>
+        <div class="project-desc">
+          <p>Developed a C# Windows Forms application for university management, incorporating
+            SQL for seamless database connectivity. Enabled efficient student record management.</p>
+          <div class="project-link" onclick="window.open('https://github.com/AsalarS/OODProject')">
+            <span>Open Repo</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Bahrain Medical Finder</h3>
+          <p class="project-date">Bahrain Polytechnic - 2023</p>
+        </div>
+        <div class="project-image">
+          <img src="./assets/iosApp.png" alt="Project Image" draggable="false">
         </div>
         <div class="project-desc">
           <p>Designed a Swift application using Xcode tailored for medical labs and hospitals,
-            featuring comprehensive package management functionality. Integrated intuitive user
-            interfaces with Swift's capabilities, ensuring seamless navigation and efficient data
-            management. This project highlights proficiency in iOS development and a keen
-            understanding of Bahraini healthcare system requirements.</p>
+            featuring comprehensive package management functionality.</p>
           <div class="project-link" onclick="window.open('https://github.com/AsalarS/projectMobileProg')">
-            <h3>Open Repo</h3>
-            <img src="assets/arrow.png" alt="Arrow" draggable="false">
+            <span>Open Repo</span>
+            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
       </div>
-      <div class="project-image">
-        <img src="./assets/iosApp.png" alt="Project Image" draggable="false">
-      </div>
-  
-      </section>
 
-      <section class="project-section">
-        <div class="project-top">
-          <!-- <img src="./assets/linkedin.png" alt="Project Logo" class="project-logo"/> -->
-        <div class="project-name-title">
-          <h1>Escape The Planet Video Game</h1>
-          <p>Bahrain Polytechnic - 2024</p>
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Escape The Planet Video Game</h3>
+          <p class="project-date">Bahrain Polytechnic - 2024</p>
+        </div>
+        <div class="project-image">
+          <img src="./assets/escapeThePlanet.png" alt="Project Image" draggable="false">
         </div>
         <div class="project-desc">
-          <p>Created a chilling first-person shooter experience using Unity and C#. Developed a robust UI system and a customizable weapon system to enhance player immersion and gameplay. This project demonstrates proficiency in game development, UI design, and weapon mechanics, contributing to a terrifying and engaging horror experience.</p>
+          <p>Created a chilling first-person shooter experience using Unity and C#. Developed a robust UI system and a customizable weapon system.</p>
           <div class="project-link" onclick="window.open('https://github.com/AsalarS/EscapeThePlanet')">
-            <h3>Open Repo</h3>
-            <img src="assets/arrow.png" alt="Arrow" draggable="false">
+            <span>Open Repo</span>
+            <i class="fas fa-arrow-right"></i>
           </div>
         </div>
       </div>
-      <div class="project-image">
-        <img src="./assets/escapeThePlanet.png" alt="Project Image" draggable="false">
-      </div>
-  
-      </section>
     </div>
+  </section>
 
-    <hr/>
+  <hr/>
 
-    <!-- Testimonials Section
-    <section id="Testimonials">
-      <p class="section__text__p1">What others have to say</p>
-      <h1 class="title">Testimonials</h1>
-
-      <div class="testimony-container">
-        <div class="testimony">
-          <img src="./assets/quotation.png" alt="Experience icon" class="icon" draggable="false">
-          <p class="testimony-paragraph">Working with Ali Alfardan on our university programming project was an absolute pleasure. Their dedication to the project and their ability to think critically were invaluable. Fardan was always eager to learn new concepts and was always willing to help their teammates. Their contributions to the project were instrumental in its success.</p>
-          <p class="testimony-person">- Danial Alajami</p>
+  <!-- About Section -->
+  <section id="about">
+    <p class="section__text__p1">Get To Know More</p>
+    <h1 class="title">About Me</h1>
+    <div class="about-details-container">
+      <div class="about-containers">
+        <div class="details-container">
+          <img
+                  src="./assets/experience.png"
+                  alt="Experience icon"
+                  class="icon"
+                  draggable="false"
+          />
+          <h3>Experience</h3>
+          <p>2+ years <br />Frontend Development</p>
         </div>
-  
-        <div class="testimony">
-          <img src="./assets/quotation.png" alt="Experience icon" class="icon" draggable="false">
-          <p class="testimony-paragraph">Ali Alfardan is a talented and hardworking programmer. I had the opportunity to collaborate with them on a challenging programming project, and I was impressed by their problem-solving skills and attention to detail. Ali was always willing to go the extra mile to ensure that the project met our highest standards. I would highly recommend working with them on any future projects.</p>
-          <p class="testimony-person"> - Ali Abdulrasool</p>
-        </div>
-      </div>
-
-      </div>
-    </section>
-
-    <hr/> -->
-
-    <!-- About Section -->
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-                draggable="false"
-              />
-              <h3>Experience</h3>
-              <p>2+ years <br />Frontend Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-                draggable="false"
-              />
-              <h3>Education</h3>
-              <p>Bahrain Polytechnic • 2021-2025 • 3.28<br />B.Sc. Bachelors Degree</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p class="about-desc">
-              Passionate student proficient in Java, C#, Git, HTML & CSS, with hands-on
-              experience in software development, web design, and database
-              management. Proven problem-solving skills and collaborative mindset
-              demonstrated through individual and group projects, eager to contribute
-              to the tech world and further develop expertise in the field
-            </p>
-          </div>
+        <div class="details-container">
+          <img
+                  src="./assets/education.png"
+                  alt="Education icon"
+                  class="icon"
+                  draggable="false"
+          />
+          <h3>Education</h3>
+          <p>Bahrain Polytechnic • 2021-2025 • 3.28<br />B.Sc. Bachelors Degree</p>
         </div>
       </div>
-    </section>
-
-    </main>
-    <footer>
-      <div class="footer-content" id="footer">
-        <div class="social-links">
-          <ul class="nav-links">
-            <!-- Number -->
-        <div class="footer-info">
-          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon"
-          onclick="window.open('tel:+97336620055')"/> <!--TODO: in js check if user is using a dekstop and copy the number and show feedback dialogue -->
-          <p class="footer-links"><a href="tel:+97336620055">+973 36620055</a></p>
-        </div>
-        <!-- Mail -->
-        <div class="footer-info">
-          <img src="./assets/icon_email.png" alt="Email icon" class="icon contact-icon email-icon"
-          onclick="window.open('mailto:examplemail@gmail.com')"/>
-          <p class="footer-links"><a href="mailto:examplemail@gmail.com">ali.n.alfardan@gmail.com</a></p>
-        </div>
-        <!-- LinkedIn -->
-        <div class="footer-info">
-          <img src="./assets/linkedin.png" alt="LinkedIn icon" class="icon contact-icon"
-          onclick="window.open('https://www.linkedin.com/in/alinalfardan/')"/>
-        </div>
-        <!-- Github -->
-        <div class="footer-info">
-          <img src="./assets/github.png" alt="Github icon" class="icon contact-icon"
-          onclick="window.open('https://www.github.com/AsalarS')"/>
-        </div>
-        <!-- CV -->
-        <div class="footer-info">
-          <img src="./assets/icon_cv.png" alt="Résumé Download" class="icon contact-icon" onclick="window.open('./assets/Ali Alfardan CV.pdf')"/>
-        </div>
-          </ul>
-        </div>
-        <span class="barcode-font">Ali Alfardan</span>
+      <div class="text-container">
+        <p class="about-desc">
+          Passionate student proficient in Java, C#, Git, HTML & CSS, with hands-on
+          experience in software development, web design, and database
+          management. Proven problem-solving skills and collaborative mindset
+          demonstrated through individual and group projects, eager to contribute
+          to the tech world and further develop expertise in the field
+        </p>
       </div>
-    </footer>
+    </div>
+  </section>
+</main>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+<footer>
+  <div class="footer-content" id="footer">
+    <p class="footer-copyright">© 2025 Ali Alfardan. All rights reserved.</p>
+    <p class="footer-designed-by">Software Developer | Bahrain</p>
+  </div>
+</footer>
 
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

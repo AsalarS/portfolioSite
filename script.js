@@ -1,58 +1,83 @@
 // script.js
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Activate Bootstrap scrollspy
-  const navBar = document.body.querySelector("#navBar");
-  if (navBar) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#navBar",
-      rootMargin: "0px 0px -40%",
-    });
+  // Initialize all components
+  initNavbarBehavior();
+  initFloatingSidebar();
+  initDarkMode();
+  setupFooterObserver();
+  initSmoothScroll();
+
+  // Initialize scroll animations for elements
+  initScrollAnimations();
+});
+
+// Initialize navbar behaviors
+function initNavbarBehavior() {
+  // Activate Bootstrap scrollspy with offset
+  const body = document.body;
+  if (typeof bootstrap !== 'undefined') {
+    try {
+      new bootstrap.ScrollSpy(body, {
+        target: "#navBar",
+        rootMargin: "0px 0px -40%",
+        offset: 100
+      });
+    } catch (e) {
+      console.warn("Bootstrap ScrollSpy not available", e);
+    }
   }
 
-  // Collapse responsive navbar
-  const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(
-      document.querySelectorAll("#navbarResponsive .nav-link")
-  );
-  responsiveNavItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
-        navbarToggler.click();
-      }
-    });
-  });
+  // Update active links manually if Bootstrap ScrollSpy not available
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
 
-  // Navbar scroll behavior
-  window.addEventListener("scroll", function() {
-    var navBar = document.getElementById("navBar");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  window.addEventListener("scroll", () => {
+    // Navbar appearance on scroll
+    const navBar = document.getElementById("navBar");
+    if (window.scrollY > 50) {
       navBar.classList.add("shown");
     } else {
       navBar.classList.remove("shown");
     }
 
-    // Check if footer is visible and update sidebar visibility
+    // Check footer visibility
     checkFooterVisibility();
+
+    // Update active links if Bootstrap ScrollSpy not available
+    if (typeof bootstrap === 'undefined') {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          current = "#" + section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+        }
+      });
+    }
   });
 
-  // Create and append floating sidebar
-  createFloatingSidebar();
-
-  // Add dark mode toggle to navbar
-  addDarkModeToggle();
-
-  // Check for saved dark mode preference
-  if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
-  }
-
-  // Initial check for footer visibility
-  checkFooterVisibility();
-
-  // Set up Intersection Observer for footer
-  setupFooterObserver();
-});
+  // Add click event to nav links for smooth scrolling
+  navLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+}
 
 // Setup Intersection Observer to detect when footer is visible
 function setupFooterObserver() {
@@ -66,22 +91,23 @@ function setupFooterObserver() {
           if (!sidebar) return;
 
           if (entry.isIntersecting) {
-            // Footer is visible
-            sidebar.classList.add("hidden");
+            // Footer is visible - hide sidebar with a fade
+            sidebar.style.opacity = "0";
+            sidebar.style.visibility = "hidden";
           } else {
-            // Footer is not visible
-            sidebar.classList.remove("hidden");
+            // Footer is not visible - show sidebar with a fade
+            sidebar.style.opacity = "1";
+            sidebar.style.visibility = "visible";
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: "0px 0px 50px 0px" }
   );
 
   observer.observe(footer);
 }
 
-
-// Alternative method using getBoundingClientRect
+// Alternative method using getBoundingClientRect for footer visibility
 function checkFooterVisibility() {
   const footer = document.getElementById("footer");
   const sidebar = document.querySelector(".floating-sidebar");
@@ -92,35 +118,36 @@ function checkFooterVisibility() {
 
     // If footer is visible in the viewport (even partially)
     if (footerRect.top < windowHeight && footerRect.bottom >= 0) {
-      sidebar.classList.add("hidden");
+      sidebar.style.opacity = "0";
+      sidebar.style.visibility = "hidden";
     } else {
-      sidebar.classList.remove("hidden");
+      sidebar.style.opacity = "1";
+      sidebar.style.visibility = "visible";
     }
   }
 }
 
-function createFloatingSidebar() {
+// Create and initialize floating sidebar
+function initFloatingSidebar() {
   const floatingSidebar = document.createElement("div");
   floatingSidebar.classList.add("floating-sidebar");
   floatingSidebar.id = "floatingSidebar";
 
-  // Base styles for the sidebar
-  floatingSidebar.style.display = "flex";
-  floatingSidebar.style.gap = "15px";
-  floatingSidebar.style.transition = "visibility 0.3s, opacity 0.3s";
-
+  // Social links for the sidebar
   const sidebarIcons = [
-    { src: "./assets/linkedin.png", link: "https://www.linkedin.com/in/alinalfardan/" },
-    { src: "./assets/github.png", link: "https://github.com/AsalarS" },
-    { src: "./assets/icon_email.png", link: "mailto:ali.n.alfardan@gmail.com" },
-    { src: "./assets/icon_cv.png", link: "./assets/Ali Alfardan CV.pdf" }
+    { icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/alinalfardan/", alt: "LinkedIn" },
+    { icon: "fab fa-github", link: "https://github.com/AsalarS", alt: "GitHub" },
+    { icon: "fas fa-envelope", link: "mailto:ali.n.alfardan@gmail.com", alt: "Email" },
+    { icon: "fas fa-file-alt", link: "./assets/Ali Alfardan CV.pdf", alt: "CV" }
   ];
 
-  sidebarIcons.forEach(icon => {
-    const iconEl = document.createElement("img");
-    iconEl.src = icon.src;
-    iconEl.classList.add("sidebar-icon");
-    iconEl.onclick = () => window.open(icon.link);
+  // Create icons and add to sidebar
+  sidebarIcons.forEach(item => {
+    const iconEl = document.createElement("i");
+    iconEl.className = `${item.icon} sidebar-icon`;
+    iconEl.title = item.alt;
+    iconEl.setAttribute("aria-label", item.alt);
+    iconEl.onclick = () => window.open(item.link);
     floatingSidebar.appendChild(iconEl);
   });
 
@@ -128,12 +155,15 @@ function createFloatingSidebar() {
 
   // Set initial layout based on screen size
   updateSidebarLayout();
-  window.addEventListener("resize", updateSidebarLayout);
 
-  // Check footer visibility
-  window.addEventListener("resize", checkFooterVisibility);
+  // Add event listeners for window resize
+  window.addEventListener("resize", () => {
+    updateSidebarLayout();
+    checkFooterVisibility();
+  });
 }
 
+// Update sidebar layout based on screen size
 function updateSidebarLayout() {
   const floatingSidebar = document.querySelector(".floating-sidebar");
   if (floatingSidebar) {
@@ -151,14 +181,99 @@ function updateSidebarLayout() {
   }
 }
 
-function addDarkModeToggle() {
+// Initialize dark mode functionality
+function initDarkMode() {
+  // Add dark mode toggle to navbar
   const navLinksContainer = document.querySelector(".nav-links");
+  if (!navLinksContainer) return;
+
   const darkModeToggle = document.createElement("li");
-  darkModeToggle.innerHTML = `<button class="dark-mode-toggle">🌓</button>`;
+  darkModeToggle.innerHTML = `<button class="dark-mode-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>`;
   navLinksContainer.appendChild(darkModeToggle);
 
+  // Add click event for dark mode toggle
   darkModeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+    const darkMode = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", darkMode);
+
+    // Update icon based on mode
+    const icon = darkModeToggle.querySelector("i");
+    if (darkMode) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    } else {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
+  });
+
+  // Check for saved dark mode preference
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+    const icon = darkModeToggle.querySelector("i");
+    if (icon) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    }
+  }
+}
+
+// Initialize scroll animations for elements
+function initScrollAnimations() {
+  // Check if Intersection Observer is supported
+  if ('IntersectionObserver' in window) {
+    // Animate job cards
+    animateElements('.job-card', 'job-card-hidden', 'job-card-visible');
+
+    // Animate project cards
+    animateElements('.project-card', 'project-card-hidden', 'project-card-visible');
+
+    // Animate section titles
+    animateElements('.title', 'title-hidden', 'title-visible');
+  }
+}
+
+// Helper function to animate elements with Intersection Observer
+function animateElements(selector, hiddenClass, visibleClass) {
+  const elements = document.querySelectorAll(selector);
+
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(visibleClass);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+  elements.forEach(element => {
+    element.classList.add(hiddenClass);
+    observer.observe(element);
+  });
+}
+
+// Initialize smooth scrolling behavior
+function initSmoothScroll() {
+  // Apply smooth scrolling to all internal anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
 }
