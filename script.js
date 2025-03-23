@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbarBehavior();
   initFloatingSidebar();
   initDarkMode();
-  setupFooterObserver();
   initSmoothScroll();
 
   // Initialize scroll animations for elements
@@ -39,9 +38,6 @@ function initNavbarBehavior() {
     } else {
       navBar.classList.remove("shown");
     }
-
-    // Check footer visibility
-    checkFooterVisibility();
 
     // Update active links if Bootstrap ScrollSpy not available
     if (typeof bootstrap === 'undefined') {
@@ -79,54 +75,6 @@ function initNavbarBehavior() {
   });
 }
 
-// Setup Intersection Observer to detect when footer is visible
-function setupFooterObserver() {
-  const footer = document.getElementById("footer");
-  if (!footer) return;
-
-  const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          const sidebar = document.querySelector(".floating-sidebar");
-          if (!sidebar) return;
-
-          if (entry.isIntersecting) {
-            // Footer is visible - hide sidebar with a fade
-            sidebar.style.opacity = "0";
-            sidebar.style.visibility = "hidden";
-          } else {
-            // Footer is not visible - show sidebar with a fade
-            sidebar.style.opacity = "1";
-            sidebar.style.visibility = "visible";
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px 50px 0px" }
-  );
-
-  observer.observe(footer);
-}
-
-// Alternative method using getBoundingClientRect for footer visibility
-function checkFooterVisibility() {
-  const footer = document.getElementById("footer");
-  const sidebar = document.querySelector(".floating-sidebar");
-
-  if (footer && sidebar) {
-    const footerRect = footer.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    // If footer is visible in the viewport (even partially)
-    if (footerRect.top < windowHeight && footerRect.bottom >= 0) {
-      sidebar.style.opacity = "0";
-      sidebar.style.visibility = "hidden";
-    } else {
-      sidebar.style.opacity = "1";
-      sidebar.style.visibility = "visible";
-    }
-  }
-}
-
 // Create and initialize floating sidebar
 function initFloatingSidebar() {
   const floatingSidebar = document.createElement("div");
@@ -135,10 +83,10 @@ function initFloatingSidebar() {
 
   // Social links for the sidebar
   const sidebarIcons = [
-    { icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/alinalfardan/", alt: "LinkedIn" },
-    { icon: "fab fa-github", link: "https://github.com/AsalarS", alt: "GitHub" },
-    { icon: "fas fa-envelope", link: "mailto:ali.n.alfardan@gmail.com", alt: "Email" },
-    { icon: "fas fa-file-alt", link: "./assets/Ali Alfardan CV.pdf", alt: "CV" }
+    { icon: "fab fa-linkedin fa-fw", link: "https://www.linkedin.com/in/alinalfardan/", alt: "LinkedIn" },
+    { icon: "fab fa-github fa-fw", link: "https://github.com/AsalarS", alt: "GitHub" },
+    { icon: "fas fa-envelope fa-fw", link: "mailto:ali.n.alfardan@gmail.com", alt: "Email" },
+    { icon: "fas fa-file-alt fa-fw", link: "./assets/Ali Alfardan CV.pdf", alt: "CV" }
   ];
 
   // Create icons and add to sidebar
@@ -159,7 +107,6 @@ function initFloatingSidebar() {
   // Add event listeners for window resize
   window.addEventListener("resize", () => {
     updateSidebarLayout();
-    checkFooterVisibility();
   });
 }
 

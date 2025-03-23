@@ -2,28 +2,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Libre+Barcode+128+Text&display=swap");
 
 :root {
-    --primary-color: #333;
+    --primary-color: #323b4c;
     --secondary-color: rgb(85, 85, 85);
-    --accent-color: #4da6ff;
-    --secondary-accent: #3f8efc;
+    --accent-color: #323b4c;
+    --secondary-accent: #3f4656;
     --project-gradient-start: #f5f7fa;
     --project-gradient-end: #e4e8ed;
     --border-color: rgb(163, 163, 163);
     --section-divider-color: rgba(0, 0, 0, 0.1);
     --light-bg: #fff;
-    --dark-bg: #121212;
+    --dark-bg: #000000;
     --dark-secondary: #1e1e1e;
     --dark-text: #e0e0e0;
     --dark-text-secondary: #b0b0b0;
-    --dark-accent: #5fa8ff;
-    --dark-project-gradient-start: #192333;
-    --dark-project-gradient-end: #111927;
+    --dark-accent: #4c5669;
+    --dark-project-gradient-start: #1d2330;
+    --dark-project-gradient-end: #141820;
     --transition: all 300ms ease;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15);
     --section-padding: 4vh 0 5vh;
     --border-radius: 1rem;
     --section-gap: 3rem;
+    --tag-gradient-start: #323b4c;
+    --tag-gradient-end: #434f68;
 }
 
 * {
@@ -84,6 +86,8 @@ section {
     margin: 0 10rem;
     min-height: fit-content;
     position: relative;
+    z-index: 1;
+    box-sizing: border-box;
 }
 
 section::after {
@@ -186,13 +190,14 @@ main {
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
-    display: inline-block;
+    display: block;
+    width: 100%;
 }
 
 .title::after {
     content: '';
     position: absolute;
-    width: 50px;
+    width: 60px;
     height: 3px;
     background-color: var(--accent-color);
     bottom: -10px;
@@ -296,24 +301,43 @@ main {
 }
 
 .job-tags {
+    max-width: fit-content!important;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
 .job-tag {
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, var(--tag-gradient-start), var(--tag-gradient-end));
+    color: white;
     padding: 0.3rem 0.7rem;
     border-radius: 2rem;
     font-size: 0.75rem;
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.project-tag, a.job-tag {
+    display: inline-block;
+    width: auto;
+    min-width: initial;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
+}
+
+a.project-tag:hover, a.job-tag:hover {
+    color: white;
+    text-decoration: none;
 }
 
 .job-tag:hover {
-    background-color: var(--accent-color);
-    color: white;
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* PROJECTS SECTION */
@@ -321,29 +345,33 @@ main {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    z-index: 1;
+    box-sizing: border-box;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    width: 100%;
 }
 
 .project-card {
-    background: linear-gradient(to bottom, var(--project-gradient-start), var(--project-gradient-end));
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .project-header {
@@ -354,18 +382,21 @@ main {
     margin: 0;
     font-size: 1.4rem;
     color: var(--primary-color);
+    font-weight: 600;
 }
 
 .project-date {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--secondary-color);
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
 }
 
 .project-image {
     width: 100%;
-    height: 180px;
+    height: 200px;
     overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .project-image img {
@@ -387,9 +418,10 @@ main {
 }
 
 .project-desc p {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
     flex: 1;
+    line-height: 1.6;
 }
 
 .project-link {
@@ -399,7 +431,7 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-top: auto;
 }
 
@@ -415,6 +447,32 @@ main {
 
 .project-link:hover i {
     transform: translateX(3px);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1.2rem 0;
+}
+
+.project-tag {
+    background: linear-gradient(to right, var(--tag-gradient-start), var(--tag-gradient-end));
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.project-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ABOUT SECTION */
@@ -480,19 +538,20 @@ footer {
 
 /* FLOATING SIDEBAR */
 .floating-sidebar {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.98);
     border-radius: 20px;
-    padding: 15px;
+    padding: 22px;
     display: flex;
-    gap: 15px;
-    box-shadow: var(--shadow);
-    z-index: 1000;
+    gap: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 99;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .floating-sidebar-desktop {
     position: fixed;
-    left: 20px;
+    left: 25px;
     top: 50%;
     transform: translateY(-50%);
     flex-direction: column;
@@ -510,14 +569,20 @@ footer {
 }
 
 .sidebar-icon {
-    width: 30px;
-    height: 30px;
+    font-size: 1.7rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--accent-color);
 }
 
 .sidebar-icon:hover {
     transform: scale(1.2);
+    color: var(--secondary-accent);
+}
+
+.floating-sidebar.hidden {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* DARK MODE TOGGLE */
@@ -573,15 +638,48 @@ body.dark-mode {
     color: var(--dark-text);
 }
 
-body.dark-mode p {
+/* Ensure all text is readable in dark mode */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .title,
+body.dark-mode .section__text__p2,
+body.dark-mode .job-header h3 {
+    color: var(--dark-text);
+}
+
+body.dark-mode p,
+body.dark-mode .job-date,
+body.dark-mode .project-date {
     color: var(--dark-text-secondary);
 }
 
+/* Enhance navbar in dark mode */
 body.dark-mode nav,
 body.dark-mode #navBar {
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(18, 18, 18, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+body.dark-mode .nav-links a {
+    color: var(--dark-text);
+}
+
+body.dark-mode .nav-links a:hover,
+body.dark-mode .nav-links a.active {
+    color: #50648C;
+    text-decoration-color: #50648C;
+}
+
+body.dark-mode .logo {
+    color: var(--dark-text);
+}
+
+/* Improve buttons in dark mode */
 body.dark-mode .btn-color-1,
 body.dark-mode .btn-color-2 {
     border-color: var(--dark-text);
@@ -589,19 +687,92 @@ body.dark-mode .btn-color-2 {
 }
 
 body.dark-mode .btn-color-1 {
-    background-color: var(--dark-secondary);
+    background-color: rgba(50, 59, 76, 0.8);
 }
 
 body.dark-mode .btn-color-1:hover,
 body.dark-mode .btn-color-2:hover {
-    background-color: var(--dark-accent);
-    border-color: var(--dark-accent);
+    background-color: #50648C;
+    border-color: #50648C;
+    color: white;
 }
 
+/* Fix project and job cards */
 body.dark-mode .details-container,
 body.dark-mode .job-card {
     background-color: var(--dark-secondary);
-    border-color: #444;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fix project tags and job tags for better readability */
+body.dark-mode .project-tag,
+body.dark-mode .job-tag {
+    background: linear-gradient(to right, #50648C, #3F5475);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .project-tag:hover,
+body.dark-mode .job-tag:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Fix project cards */
+body.dark-mode .project-card {
+    background: linear-gradient(135deg, var(--dark-secondary), var(--dark-bg));
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .project-link {
+    color: #50648C;
+}
+
+body.dark-mode .project-link:hover {
+    color: #6C8BFF;
+}
+
+/* Improve section title styling */
+body.dark-mode .title::after {
+    background-color: #50648C;
+}
+
+body.dark-mode .section__text__p1 {
+    color: #50648C;
+}
+
+/* Fix footer and sidebar */
+body.dark-mode footer {
+    background-color: var(--dark-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .footer-copyright,
+body.dark-mode .footer-designed-by {
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode .floating-sidebar {
+    background-color: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .sidebar-icon {
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar-icon:hover {
+    color: #50648C;
+}
+
+/* Fix section dividers */
+body.dark-mode hr {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+/* Fix images and icons in dark mode */
+body.dark-mode .icon {
+    filter: brightness(0.8) invert(1);
 }
 
 body.dark-mode a,
@@ -611,74 +782,29 @@ body.dark-mode .project-link {
 
 body.dark-mode a:hover,
 body.dark-mode .project-link:hover {
-    color: #80c1ff;
-}
-
-body.dark-mode .floating-sidebar {
-    background-color: rgba(30, 30, 30, 0.9);
-}
-
-body.dark-mode .floating-sidebar img,
-body.dark-mode .icon {
-    filter: brightness(0.8) invert(1);
-}
-
-body.dark-mode #navBar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode #navBar.shown {
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-body.dark-mode .nav-links a:hover {
-    color: var(--dark-accent);
-    text-decoration-color: var(--dark-accent);
+    color: #50648C;
 }
 
 body.dark-mode .dark-mode-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .job-tag {
-    background-color: #333;
-    color: var(--dark-text);
+/* Media Queries */
+@media only screen and (min-width: 1400px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-body.dark-mode .project-card {
-    background: linear-gradient(to bottom, var(--dark-project-gradient-start), var(--dark-project-gradient-end));
+@media only screen and (max-width: 1399px) and (min-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-body.dark-mode .project-header h3 {
-    color: var(--dark-text);
-}
-
-body.dark-mode hr {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-}
-
-body.dark-mode footer {
-    background-color: var(--dark-secondary);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .footer-copyright,
-body.dark-mode .footer-designed-by {
-    color: var(--dark-text-secondary);
-}
-
-body.dark-mode .section__text__p1 {
-    color: var(--dark-accent);
-}
-
-/* MEDIA QUERIES */
 @media only screen and (max-width: 1200px) {
     section {
         margin: 0 5rem;
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -693,7 +819,14 @@ body.dark-mode .section__text__p1 {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    section, .projects-section {
+        margin: 0 3rem;
+        width: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }
 
@@ -704,11 +837,15 @@ body.dark-mode .section__text__p1 {
         max-width: 100vw;
     }
 
-    section {
-        margin: 0 2rem;
-        padding: 3vh 0;
-        width: 100%;
-        box-sizing: border-box;
+    section, .projects-section {
+        margin: 0 auto;
+        padding: 2vh 1.5rem;
+        width: 92%;
+        max-width: 100%;
+    }
+
+    .experience-container {
+        margin: 2rem 0;
     }
 
     .logo, li, .section__text {
@@ -770,11 +907,10 @@ body.dark-mode .section__text__p1 {
 
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
     .project-image {
-        height: 160px;
+        height: 180px;
     }
 
     footer {
@@ -791,22 +927,15 @@ body.dark-mode .section__text__p1 {
         justify-content: center;
         width: auto;
         max-width: 90%;
-    }
-
-    .floating-sidebar.hidden {
-        visibility: hidden !important;
-        opacity: 0 !important;
+        z-index: 100;
     }
 
     .sidebar-icon {
-        width: 24px;
-        height: 24px;
-        margin: 0 8px;
+        font-size: 1.3rem;
     }
 
     .job-card {
-        margin: 0;
-        padding: 1.2rem;
+        margin: 0 0 1rem 0;
     }
 
     .title {
@@ -818,12 +947,17 @@ body.dark-mode .section__text__p1 {
         height: 2px;
         bottom: -8px;
     }
+
+    section[style*="margin-left"], .projects-section[style*="margin-left"] {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 @media only screen and (max-width: 480px) {
-    section {
-        margin: 0 1rem !important;
-        padding: 2vh 0;
+    section, .projects-section {
+        width: 94%;
+        padding: 2vh 1rem;
     }
 
     .project-header h3 {
@@ -837,5 +971,9 @@ body.dark-mode .section__text__p1 {
 
     .job-header h3 {
         font-size: 1.2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
